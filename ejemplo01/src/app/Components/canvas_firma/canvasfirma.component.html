@@ -1,0 +1,31 @@
+<div class="contenedor">
+  <div class="row">
+    <div class="col-md-12">
+        <h2>
+          Firmar
+        </h2>
+        <div>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{selectText}}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button (click)="selectPersona(persona)" class="dropdown-item" type="button" *ngFor="let persona of personas">{{persona.nombre}}</button>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="wrapper">
+          <br>
+          <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()" id="signature-pad" class="signature-pad">
+          </signature-pad>
+          <hr class="mt-5 float-left" width="300">
+        </div>
+        <div>
+          <br>
+          <button class="btn btn-info mr-2" (click)="saveFirmaWithUsuario()" >Guardar</button>
+          <button  class="btn btn-success" (click)="clear()" >Limpiar</button>
+        </div>
+     </div>
+  </div>
+</div>

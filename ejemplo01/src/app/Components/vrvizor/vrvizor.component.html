@@ -1,0 +1,57 @@
+
+
+<a-scene>
+  <!-- assets image and sound. -->
+  <a-assets >
+    <!-- assets thumb . -->
+    <img id="default-thumb" crossorigin="anonymous" src="../../../assets/imgs/nada.png">
+    <!-- assets sound click. -->
+    <audio id="click-sound" crossorigin="anonymous" src="../../../assets/sounds/click.ogg"></audio>
+    <!-- assets image 360 default. -->
+    <img id="backgroundDefault" crossorigin="anonymous" src="../../../assets/imgs/backgroundDefault.jpg">
+    <!-- assets image 360. -->
+    <div *ngFor="let obje of data;">
+      <img [id]="obje.id" crossorigin="anonymous" [attr.src]="obje.img360">
+    </div>
+
+    <!-- assets image menu. -->
+    <img id="menu-thumb" crossorigin="anonymous" src="../../../assets/imgs/menu.jpg">
+    <img id="backrouter-thumb" crossorigin="anonymous" src="../../../assets/imgs/backrouter.jpg">
+  </a-assets>
+
+  <!-- 360-degree image. -->
+  <a-sky id="image-360" radius="10" src="#backgroundDefault"
+         animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+         animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
+  <!-- Show Menu. -->
+  <a-entity id="menu" (click)="showMenu()" template="src: #menuLink" data-src="#" data-thumb="#menu-thumb" position="-2 1.5 -4"></a-entity>
+  <a-entity *ngIf="true==true" text="font: mozillavr; align: center; width: 6; color: black; value: HomeBuilding" position="1 2.5 -4"></a-entity>
+
+  <!-- back links. -->
+  <a-entity (click)="backPage()" template="src: #menuLink" data-src="#default-thumb" data-thumb="#backrouter-thumb" position="0 1.5 -4"></a-entity>
+
+  <!-- Image links. -->
+  <a-entity  id="links1" layout="type: line; margin: 2" position="-3.5 0 -4"  material="shader: flat" class="links" visible="true" >
+    <a-entity  *ngFor="let obje of parte1; index as i;" [id]="'links1'+i">
+      <a-entity   template="src: #link" [attr.data-src]="'#'+obje.id"  data-thumb="#default-thumb" [attr.text]="'align: center; width: 3; color: black; value:'+obje.description"></a-entity>
+    </a-entity >
+  </a-entity>
+  <a-entity  id="links2" layout="type: line; margin: 2" position="-3.5 -2 -4" material="shader: flat" class="links" visible="true" >
+    <a-entity  *ngFor="let obje of parte2; index as i;" [id]="'links2'+i">
+      <a-entity   template="src: #link" [attr.data-src]="'#'+obje.id" data-thumb="#default-thumb" [attr.text]="'align: center; width: 3; color: black; value:'+obje.description"></a-entity>
+    </a-entity >
+  </a-entity>
+
+  <!-- Camera + cursor. -->
+  <a-entity  id="camera" camera look-controls>
+    <a-cursor
+      id="cursor"
+      animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+      animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+      event-set__mouseenter="_event: mouseenter; color: springgreen"
+      event-set__mouseleave="_event: mouseleave; color: black"
+      raycaster="objects: .link">
+    </a-cursor>
+  </a-entity>
+</a-scene>
+

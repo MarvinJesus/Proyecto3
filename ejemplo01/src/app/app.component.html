@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">NovaCoders</a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+  </div>
+</nav>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Ejemplo de tabla</h5>
+          <p class="card-text">Este muestra un ejemplo de como iteramos en la vista para crear una tabla </p>
+          <br>
+          <button (click)="Tabla()" class="btn btn-info">Tabla</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Ejemplo Google Maps</h5>
+          <p class="card-text">Es un ejemplo donde usamos el api de googlemaps para mostrar coordenadas graficamente en un mapa.</p>
+          <button (click)="Mapa()" class="btn btn-info">Mapa</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Ejemplo de firma</h5>
+          <p class="card-text">En este ejemplo creamos un espacio usando canvas, donde el usuario puede dibujar su firma. </p>
+          <button (click)="Canvasfirma()" class="btn btn-info">Canvas Firma</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Ejemplo Visor VR</h5>
+          <p class="card-text">Se creo una galeria virtual de imagenes 360.</p>
+          <br>
+          <br>
+          <button (click)="VrVisor()" class="btn btn-info">VR Visor</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Ejemplo Chat </h5>
+          <p class="card-text">Se creo un chat en tiempo real</p>
+          <br>
+          <br>
+          <button (click)="chat()" class="btn btn-info">Chat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <router-outlet></router-outlet>
+</div>
+
+
+
